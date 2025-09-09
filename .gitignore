@@ -1,0 +1,14 @@
+# Ignore screenshots folder
+screenshots/
+
+# Common patterns to ignore
+.DS_Store
+node_modules/
+*.log
+.env
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo

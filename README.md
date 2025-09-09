@@ -22,7 +22,7 @@ This tool was born out of that need - a simple, no-frills way to quickly visuali
 
 ## 🖥️ Usage
 **recommended method**
-go to https://tomcegraphics.github.io/graph-visualizer/
+Just open this link https://tomcegraphics.github.io/graph-visualizer/
 and thats it
 
 **offline method**
@@ -45,10 +45,14 @@ D-E 4
 ## 📸 Examples in Obsidian
 
 ### Graph Visualization
-![Graph in Obsidian](./screenshots/obsidian-example.png)
+![Graph in Obsidian](./screenshots/site.png)
+![Graph in Obsidian](./screenshots/site3.png)
 
 ### With Algorithm Notes
-![Graph with Notes](./screenshots/obsidian-notes.png)
+![Graph with Notes](./screenshots/obsidian3.png)
+![Graph with Notes](./screenshots/obsidian2.png)
+![Graph with Notes](./screenshots/obsidian.png)
+
 
 ## 🛠️ Development
 
@@ -69,6 +73,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Built with [D3.js](https://d3js.org/) for graph visualization
+- Built with [Sigma.js](https://github.com/jacomyal/sigma.js) for graph visualization
 - Inspired by countless algorithm study sessions
 - Special thanks to the open source community for amazing tools and resources
