@@ -18,9 +18,14 @@
       overflow: hidden;
       background-color: #fff;
       border: 1px solid #ccc;
+      position: relative;
     }
     .node-highlight {
       filter: drop-shadow(0 0 8px #6366f1);
+    }
+    /* Ensure edge labels are always on top */
+    .sigma-edge-label {
+      z-index: 1000 !important;
     }
   </style>
 </head>
@@ -319,11 +324,64 @@ b c 1</textarea>
             edgeLabelSize: 12,
             labelSize: 14,
             defaultNodeColor: '#2563eb',
-            defaultEdgeColor: '#6b7280',
+            defaultEdgeColor: '#99a1af',
             font: 'monospace',
+            enableEdgeClickEvents: true,
+            enableEdgeWheel: true,
+            enableEdgeHoverEvents: true,
+            edgeLabelWeight: 'bold',
+            edgeLabelColor: { color: '#4b5563' },
+            edgeLabelActiveColor: { color: '#1f2937' },
           }
         });
         window.sigmaInstance = renderer;
+
+        // --- Drag nodes functionality ---
+        let draggedNode = null;
+        let isDragging = false;
+
+        // On mouse down on a node
+        renderer.on('downNode', (e) => {
+          isDragging = true;
+          draggedNode = e.node;
+          graph.setNodeAttribute(draggedNode, 'highlighted', true);
+        });
+
+        // On mouse move, update the node position
+        renderer.getMouseCaptor().on('mousemovebody', (e) => {
+          if (!isDragging || !draggedNode) return;
+          
+          // Get new position
+          const pos = renderer.viewportToGraph(e);
+          
+          // Update node position
+          graph.setNodeAttribute(draggedNode, 'x', pos.x);
+          graph.setNodeAttribute(draggedNode, 'y', pos.y);
+          
+          // Prevent the pan camera when dragging
+          e.preventSigmaDefault();
+          e.original.preventDefault();
+          e.original.stopPropagation();
+        });
+
+        // On mouse up, stop dragging
+        renderer.getMouseCaptor().on('mouseup', () => {
+          if (draggedNode) {
+            graph.removeNodeAttribute(draggedNode, 'highlighted');
+          }
+          isDragging = false;
+          draggedNode = null;
+        });
+
+        // If the mouse leaves the container, stop dragging
+        container.addEventListener('mouseleave', () => {
+          if (draggedNode) {
+            graph.removeNodeAttribute(draggedNode, 'highlighted');
+          }
+          isDragging = false;
+          draggedNode = null;
+        });
+
         // --- hover highlight (minimal, add only this) ---
         let hoveredNode = null;
 
@@ -331,8 +389,8 @@ b c 1</textarea>
           if (!hoveredNode) return data;
           const [s, t] = graph.extremities(edge);
           return (s === hoveredNode || t === hoveredNode)
-            ? { ...data, color: "#2563eb", size: data.size + 1 }
-            : { ...data, color: "#ccc " };
+            ? { ...data, color: "#2563eb", size: 3 }
+            : { ...data, color: "#e5e7eb", size: 1 };
         });
 
         renderer.setSetting("nodeReducer", (node, data) => {
