@@ -19,26 +19,32 @@ When I was studying algorithms and data structures as a course in university, I 
 This tool was born out of that need - a simple, no-frills way to quickly visualize graphs without leaving the browser.
 
 ## 🖥️ Usage
-**recommended method**
-Just open this link https://tomcegraphics.github.io/graph-visualizer/
-and thats it
 
-**offline method**
-1. Clone this repository or download the files
-2. Open `index.html` in your preferred web browser
-3. Enter your graph in the input box using the format: `A-B 2` (one edge per line)
-4. Click "Visualize" to generate the graph
-5. Drag nodes to rearrange the layout as needed
-6. Use the "Save as PNG" button to export the graph for your notes
+### 🌐 Recommended (Online)
+The easiest way is to use the live version—no setup required:
 
-### Example Input
-```
-A-B 5
-A-C 3
-B-D 2
-C-D 1
-D-E 4
-```
+👉 [**Open Graph Visualizer**](https://tomcegraphics.github.io/graph-visualizer/)
+
+---
+
+### 💻 Offline (Local Setup)
+If you prefer running it locally:
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/tomcegraphics/graph-visualizer.git
+   cd graph-visualizer
+
+2. **Open the app**
+   - Simply double-click `index.html`
+   - Or serve it locally for a smoother dev experience:
+
+   ```bash
+   python -m http.server
+   ```
+
+   Then visit: http://localhost:8000
+
 
 ## 📸 Examples in Obsidian
 
@@ -54,11 +60,7 @@ D-E 4
 
 ## 🛠️ Development
 
-This is a simple, self-contained project with no build step required. The entire application consists of:
-
-- `index.html` - The main HTML file
-- `style.css` - Basic styling
-- `script.js` - The graph visualization logic
+This is a simple, self-contained project with no build step required.
 
 To contribute or modify:
 1. Fork the repository
