@@ -5,8 +5,6 @@
 
 A lightweight, browser-based graph visualizer designed to help students and developers visualize graphs and practice graph algorithms. Perfect for algorithm studies and note-taking in tools like Obsidian.
 
-![Graph Visualization Example](./screenshots/example.png)
-
 ## ✨ Features
 
 - **Simple Input Format**: Input graphs using the format `A-B 2` (Node1-Node2 Weight)
@@ -45,13 +43,13 @@ D-E 4
 ## 📸 Examples in Obsidian
 
 ### Graph Visualization
-![Graph in Obsidian](./screenshots/site.png)
-![Graph in Obsidian](./screenshots/site3.png)
+![Graph in Obsidian](screenshots/site.png)
+![Graph in Obsidian](screenshots/site3.png)
 
 ### With Algorithm Notes
-![Graph with Notes](./screenshots/obsidian3.png)
-![Graph with Notes](./screenshots/obsidian2.png)
-![Graph with Notes](./screenshots/obsidian.png)
+![Graph with Notes](screenshots/obsidian3.png)
+![Graph with Notes](screenshots/obsidian2.png)
+![Graph with Notes](screenshots/obsidian.png)
 
 
 ## 🛠️ Development
