@@ -1,5 +1,3 @@
-# Ignore screenshots folder
-screenshots/
 
 # Common patterns to ignore
 .DS_Store
